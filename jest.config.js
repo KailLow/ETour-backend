@@ -10,4 +10,6 @@ module.exports = {
   collectCoverageFrom: ['<rootDir>/src/**/*.ts', '!**/node_modules/**'],
   moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths),
   modulePaths: ['<rootDir>'],
+  collectCoverage: true,
+  coverageReporters: ['lcov', 'text'],
 };
