@@ -5,7 +5,7 @@
   "scripts": {
     "start": "npm run build && npm run serve",
     "serve": "node -r dotenv/config build/server.js",
-    "build": "npm run clean && npm run build-ts",
+    "build": "npm run build-ts",
     "watch": "npx concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"yellow.bold,cyan.bold,green.bold\" \"npm run watch-ts\" \"npm run watch-node\"",
     "watch-node": "set NODE_OPTIONS=\"--inspect\" && nodemon -r dotenv/config build/server.js",
     "clean": "rimraf ./build",
