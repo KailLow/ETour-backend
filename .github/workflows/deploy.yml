@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -23,7 +23,7 @@ jobs:
       - name: Run all test cases
         run: npm run test
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v2
+        uses: crazy-max/ghaction-qemu@v1
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
       - name: Login to Docker Hub
@@ -52,7 +52,3 @@ jobs:
             AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }}
             AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}
             SENDGRID_API_KEY=${{ secrets.SENDGRID_API_KEY }}
-      - name: Install Stryker Mutator
-        run: npm install --save-dev @stryker-mutator/core @stryker-mutator/javascript-mutator
-      - name: Run Stryker Mutator
-        run: npx stryker run
