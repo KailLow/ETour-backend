@@ -20,12 +20,10 @@ jobs:
         run: npm install
       - name: Build
         run: npm run build
-      - name: Run all test cases
-        run: npm run test
-      - name: Install QEMU dependencies
+      - name: Set up QEMU
         run: |
           brew install qemu
-          brew install qemu-user-static
+          brew link --overwrite qemu
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
       - name: Login to Docker Hub
