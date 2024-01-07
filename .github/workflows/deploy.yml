@@ -20,19 +20,16 @@ jobs:
         run: npm install
       - name: Build
         run: npm run build
-      - name: Set up Docker
+      - name: Install Docker Desktop
         run: |
-          curl -fsSL https://get.docker.com | sh
-          sudo usermod -aG docker $USER
-          sudo chmod 666 /var/run/docker.sock
-      - name: Set up Docker Buildx
-        run: |
-          docker buildx create --name mybuilder
-          docker buildx use mybuilder
-          docker buildx inspect --bootstrap
-      - name: Build and push Docker image
-        run: |
-          docker buildx build --platform linux/amd64,linux/arm64 --push -t your-image:latest .
+          curl -fsSL -o docker.dmg https://download.docker.com/mac/stable/Docker.dmg
+          hdiutil attach docker.dmg
+          cp -R /Volumes/Docker/Docker.app /Applications/
+          sleep 5
+          hdiutil detach /Volumes/Docker
+          open --background -a /Applications/Docker.app
+          sleep 10
+          docker version
       - name: Login to Docker Hub
         uses: docker/login-action@v2
         with:
