@@ -22,7 +22,7 @@ jobs:
         run: npm run build
       - name: Install Docker Desktop
         run: |
-          curl -fsSL -o docker.dmg https://mirrors.ustc.edu.cn/docker-ce/desktop/mac/stable/Docker.dmg
+          curl -fsSL -o docker.dmg https://desktop.docker.com/mac/main/amd64/Docker.dmg
           hdiutil attach docker.dmg
           cp -R /Volumes/Docker/Docker.app /Applications/
           sleep 5
