@@ -20,11 +20,6 @@ jobs:
         run: npm install
       - name: Build
         run: npm run build
-      - name: Set up QEMU
-        run: |
-          brew install qemu
-          brew link --overwrite qemu
-    
       - name: Set up Docker Buildx
         run: |
           docker buildx create --name mybuilder
