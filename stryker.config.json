@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@stryker-mutator/core/schema/stryker-schema.json",
-  "mutate": ["src/**/*.js", "a.js"],
+  "mutate": ["src/**/*.ts", "a.ts"],
   "buildCommand": "npm run build",
   "dashboard": {
     "project": "github.com/KailLow/SE113_Etour.git",
